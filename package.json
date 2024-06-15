@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
+    "build": "tsc -p tsconfig.json",
     "dev": "nodemon index.ts",
     "seed": "node seed.ts",
     "type-check": "tsc"
