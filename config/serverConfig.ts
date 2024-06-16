@@ -9,7 +9,7 @@ const cloudinaryConfigOptions: ConfigOptions = {
 };
 
 const CORS_OPTIONS = {
-  origin: 'twit-match-play-client.vercel.app', // client's origin
+  origin: '*', // client's origin
   credentials: true // allow credentials
 };
 
