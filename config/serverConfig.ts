@@ -1,4 +1,5 @@
 import { ConfigOptions } from 'cloudinary';
+import { CorsOptions } from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -8,8 +9,9 @@ const cloudinaryConfigOptions: ConfigOptions = {
   api_secret: process.env.API_SECRET
 };
 
-const CORS_OPTIONS = {
+const CORS_OPTIONS: CorsOptions = {
   origin: '*', // client's origin
+  optionsSuccessStatus: 200,
   credentials: true // allow credentials
 };
 
