@@ -17,8 +17,6 @@ router.post('/', async (req, res) => {
   // @ts-ignore
   const token = user.generateAuthToken();
 
-  console.log('token===', token);
-
   /*
   res.cookie('x-auth-token', token, {
     sameSite: 'none',
