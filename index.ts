@@ -24,6 +24,7 @@ db();
 // health check
 app.get('/status', (req, res) => {
   res.status(200).json('API is live');
+  console.log('for debug purpose');
 });
 
 // routes, middlewares, and optimizations
