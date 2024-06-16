@@ -6,22 +6,21 @@ import { serverConfig } from '../config';
 export default function(req: Request, res: Response, next: NextFunction) {
   const path = req.path;
   const method = req.method;
-  console.log('info===', path, method);
 
   // Skip authorization for POST requests to /auth and /users
   if ((path === '/auth' || path === '/users') && method === 'POST') {
-    return next(); // Skip the authorization and proceed to the next middleware/route handler
+    return next();
   }
 
   // authorization. check for token
   let rawToken = req.headers.cookie;
-  console.log('rawToken===', rawToken);
 
   // filter prefix(cookie name)
   if (!rawToken)
     return res.status(401).send('Access denied. No token provided.');
   rawToken = rawToken.substring('session='.length);
 
+  // get refresh token
   // extract server's token from client's token
   const decodeToken = jwt.decode(rawToken);
   //@ts-ignore

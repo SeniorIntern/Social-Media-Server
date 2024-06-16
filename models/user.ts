@@ -53,7 +53,7 @@ const userSchema = new mongoose.Schema<User>({
   }
 });
 
-userSchema.methods.generateAuthToken = function () {
+userSchema.methods.generateAuthToken = function() {
   const token = jwt.sign(
     {
       _id: this._id,
@@ -61,7 +61,8 @@ userSchema.methods.generateAuthToken = function () {
       email: this.email,
       isAdmin: this.isAdmin
     },
-    JWT_SECRET
+    JWT_SECRET,
+    { algorithm: 'HS256' }
   );
   return token;
 };

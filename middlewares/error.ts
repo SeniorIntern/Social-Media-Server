@@ -1,7 +1,7 @@
 import winston from 'winston';
 import { Request, Response, NextFunction } from 'express';
 
-export default function (
+export default function(
   err: Error,
   req: Request,
   res: Response,
@@ -10,9 +10,9 @@ export default function (
   winston.error(err.message, err);
 
   const errResponse = {
-    status: false,
-    message: 'Something failed',
-    code: 500
+    status: res.status,
+    message: err.message,
+    code: res.statusCode
   };
   res.status(500).send(errResponse);
 }

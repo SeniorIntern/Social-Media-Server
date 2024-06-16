@@ -16,12 +16,17 @@ const io = new Server(httpServer, {
   cors: CORS_OPTIONS
 });
 
+// startup configuration
 logging();
 config();
 db();
+
+// health check
 app.get('/status', (req, res) => {
   res.status(200).json('API is live');
 });
+
+// routes, middlewares, and optimizations
 routes(app);
 prod(app);
 

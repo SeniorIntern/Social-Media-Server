@@ -1,6 +1,7 @@
 import { ConfigOptions } from 'cloudinary';
 import { CorsOptions } from 'cors';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 const cloudinaryConfigOptions: ConfigOptions = {
@@ -19,7 +20,7 @@ let whitelist = [
 const CORS_OPTIONS: CorsOptions = {
   origin: whitelist,
   optionsSuccessStatus: 200,
-  credentials: true // allow credentials
+  credentials: true
 };
 
 export = {

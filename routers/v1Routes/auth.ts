@@ -16,13 +16,22 @@ router.post('/', async (req, res) => {
 
   // @ts-ignore
   const token = user.generateAuthToken();
+
+  console.log('token===', token);
+
+  /*
+  res.cookie('x-auth-token', token, {
+    sameSite: 'none',
+    secure: true,
+    httpOnly: true,
+    signed: true,
+    expires: new Date(Date.now() + 1 * 3600000)
+  });
+  res.send(_.pick(user, ['_id', 'username', 'email']));
+*/
+
   res
     .header('x-auth-token', token)
-    .cookie('session', token, {
-      sameSite: 'none',
-      secure: true,
-      httpOnly: true
-    })
     .send(_.pick(user, ['_id', 'username', 'email']));
 });
 
