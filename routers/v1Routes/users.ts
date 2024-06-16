@@ -4,7 +4,7 @@ import express from 'express';
 import _ from 'lodash';
 
 import { serverConfig } from '../../config';
-import { Conversation, User, Intro } from '../../models';
+import { Conversation, Intro, User } from '../../models';
 
 cloudinary.config(serverConfig.CLOUDINARY_CONFIG);
 
@@ -55,6 +55,7 @@ router.get('/:id', async (req, res) => {
 // register
 router.post('/', async (req, res) => {
   const { username, email, password } = req.body;
+
   let user = await User.findOne({ email });
   if (user)
     return res
