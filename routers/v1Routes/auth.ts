@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
   const token = user.generateAuthToken();
   res
     .header('x-auth-token', token)
-    .cookie('x-auth-token', token, {
+    .cookie('session', token, {
       sameSite: 'none',
       secure: true,
       httpOnly: true

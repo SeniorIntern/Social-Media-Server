@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 import { serverConfig } from '../config';
 
-export default function (req: Request, res: Response, next: NextFunction) {
+export default function(req: Request, res: Response, next: NextFunction) {
   const path = req.path;
   const method = req.method;
   console.log('info===', path, method);
@@ -15,6 +15,7 @@ export default function (req: Request, res: Response, next: NextFunction) {
 
   // authorization. check for token
   let rawToken = req.headers.cookie;
+  console.log('rawToken===', rawToken);
 
   // filter prefix(cookie name)
   if (!rawToken)

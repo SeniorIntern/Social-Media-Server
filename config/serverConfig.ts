@@ -9,8 +9,15 @@ const cloudinaryConfigOptions: ConfigOptions = {
   api_secret: process.env.API_SECRET
 };
 
+let whitelist = [
+  'http://twit-match-play-client.vercel.app',
+  'https://twit-match-play-client.vercel.app',
+  'http://localhost:3000',
+  'https://localhost:3000'
+];
+
 const CORS_OPTIONS: CorsOptions = {
-  origin: '*', // client's origin
+  origin: whitelist,
   optionsSuccessStatus: 200,
   credentials: true // allow credentials
 };
