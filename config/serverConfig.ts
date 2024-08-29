@@ -14,7 +14,9 @@ let whitelist = [
   'http://twit-match-play-client.vercel.app',
   'https://twit-match-play-client.vercel.app',
   'http://localhost:3000',
-  'https://localhost:3000'
+  'https://localhost:3000',
+  'http://twitmedia.vercel.app/',
+  'https://twitmedia.vercel.app/'
 ];
 
 const CORS_OPTIONS: CorsOptions = {
