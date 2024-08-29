@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
 
@@ -52,6 +53,18 @@ const userSchema = new mongoose.Schema<User>({
     maxlength: 260
   }
 });
+
+
+userSchema.pre('save', async function (next) {
+  if (!this.isModified('password')) return next();
+
+  this.password = await bcrypt.hash(this.password, 10);
+  next();
+});
+
+userSchema.methods.isPasswordCorrect = async function (password: string) {
+  return await bcrypt.compare(password, this.password);
+};
 
 userSchema.methods.generateAuthToken = function() {
   const token = jwt.sign(
