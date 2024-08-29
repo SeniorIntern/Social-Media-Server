@@ -1,4 +1,4 @@
-export { default as ApiError } from './apiError';
-export { default as ApiResponse } from './apiResponse';
+export { default as ApiError } from './ApiError';
+export { default as ApiResponse } from './ApiResponse';
 export { default as asyncHandler } from './asyncHandler';
 
