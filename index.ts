@@ -11,21 +11,22 @@ dotenv.config();
 
 const { PORT, CORS_OPTIONS } = serverConfig;
 const app = express();
+
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: CORS_OPTIONS
+});
+
+// health check
+app.get('/status', (_, res) => {
+  res.status(200).json('API is live');
+  console.log('for debug purpose');
 });
 
 // startup configuration
 logging();
 config();
 db();
-
-// health check
-app.get('/status', (req, res) => {
-  res.status(200).json('API is live');
-  console.log('for debug purpose');
-});
 
 // routes, middlewares, and optimizations
 routes(app);
