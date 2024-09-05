@@ -25,10 +25,6 @@ app.get('/status', (_, res) => {
   console.log('for debug purpose');
 });
 
-app.use((req, res) => {
-  console.log('request url===', req.baseUrl);
-});
-
 // startup configuration
 logging();
 config();
