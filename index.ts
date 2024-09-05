@@ -19,12 +19,14 @@ const io = new Server(httpServer, {
   cors: CORS_OPTIONS
 });
 
-// define routes
-
 // health check
 app.get('/status', (_, res) => {
   res.status(200).json('API is live');
   console.log('for debug purpose');
+});
+
+app.use((req, res) => {
+  console.log('request url===', req.baseUrl);
 });
 
 // startup configuration
