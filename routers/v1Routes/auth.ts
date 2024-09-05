@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
 
   // @ts-ignore
   const token = user.generateAuthToken();
-
+  // TODO: send token in body and cookie
   res
     .header('x-auth-token', token)
     .send(_.pick(user, ['_id', 'username', 'email']));

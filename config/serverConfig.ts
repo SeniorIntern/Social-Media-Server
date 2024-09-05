@@ -20,7 +20,7 @@ let whitelist = [
 ];
 
 const CORS_OPTIONS: CorsOptions = {
-  origin: '*',
+  origin: whitelist,
   optionsSuccessStatus: 200,
   credentials: true
 };
